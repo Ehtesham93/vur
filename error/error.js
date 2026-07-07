@@ -1,3 +1,6 @@
+ehteshamalam@MELT220157 nemo3-api-geofence-svc % grep -R -n -C 15 "AuthenticateAccountFromCookies" app --include="*.js"
+ehteshamalam@MELT220157 nemo3-api-geofence-svc % grep -R -n -C 15 "AuthenticateAccountTokenFromCookies" app --include="*.js"
+ehteshamalam@MELT220157 nemo3-api-geofence-svc % clear
 ehteshamalam@MELT220157 nemo3-api-geofence-svc % grep -R -n -C 15 "AuthenticateAccountTokenFromCookie" app --include="*.js" 
 app/utils/tokenutil.js-1-// Express middleware to extract JWT from cookie header and attach claims to req
 app/utils/tokenutil.js-2-import { GetUnVerifiedClaims } from './jwtutil.js';
