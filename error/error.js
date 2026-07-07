@@ -1,26 +1,14 @@
-ehteshamalam@MELT220157 nemo3-api-geofence-svc % grep -n -C 8 "geofenceHdlr" index.js
-49-const chClientI = new ClickHouseClient();
-50-
-51-const geofenceSvcI = new GeofenceSvc(pgPoolI, servicelogger, config);
-52-const healthSvcI = new HealthSvc();
-53-const reportSvcI = new ReportSvc(chClientI, pgPoolI, servicelogger, config);
-54-
-55-// 2. Handlers...
-56-const healthHdlrI = new HealthHdlr(healthSvcI);
-57:const geofenceHdlrI = new GeofenceHdlr(geofenceSvcI, servicelogger);
-58-const reportHdlrI = new ReportHdlr(reportSvcI, servicelogger);
-59-
-60-// 3. Handler Map...
-61-// Route prefix → handler instance mapping
-62-const apiRoutes = [
-63-  ["/api/v1/fms/geofence/health/", healthHdlrI],
-64:  ["/api/v1/fms/geofence/", geofenceHdlrI],
-65-  ["/api/v1/fms/geofence/report/", reportHdlrI],
-66-];
-67-
-68-// 4. API Server...
-69-// Express app wrapper with common middleware and error handling
-70-const App = new APIServer(apiRoutes, servicelogger, config);
-71-
-72-
+ehteshamalam@MELT220157 nemo3-api-geofence-svc % curl -i "http://localhost:10069/api/v1/fms/geofence/list?vin=MA1FZ2K5FH6J33183&category=driver"
+HTTP/1.1 401 Unauthorized
+X-Powered-By: Express
+Vary: Origin, Accept-Encoding
+Access-Control-Allow-Credentials: true
+Content-Type: application/json; charset=utf-8
+Content-Length: 104
+ETag: W/"68-VHJerzmJxhcbOIzO1qH6KMRydlE"
+Date: Tue, 07 Jul 2026 08:48:43 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"err":{"errcode":"TOKEN_REQUIRED","errdata":"Token is required"},"data":null,"msg":"Token is required"}%                                     
 ehteshamalam@MELT220157 nemo3-api-geofence-svc % 
